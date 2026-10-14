@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi niña 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff69a6;
+    --light: #fff0f6;
+    --dark: #b83272;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe0ee, #ffc2df, #ffedf6, #ffb6d5);
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+    color: #a52b67;
+}
+
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    15% { opacity: .8; }
+    100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+.card {
+    width: 100%;
+    max-width: 620px;
+    padding: 42px 28px;
+    text-align: center;
+    background: rgba(255,255,255,.64);
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 35px;
+    box-shadow: 0 20px 65px rgba(199, 59, 123, .19);
+    backdrop-filter: blur(14px);
+    animation: appear 1.2s ease both;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(35px) scale(.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.badge {
+    display: inline-block;
+    padding: 9px 17px;
+    border-radius: 30px;
+    background: #ffe0ee;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.big-heart {
+    display: block;
+    font-size: 75px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 8px 12px #ff8db8);
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(43px, 9vw, 68px);
+    line-height: 1.12;
+    margin-bottom: 18px;
+    color: #d63384;
+}
+
+.intro {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #89516d;
+    margin: 0 auto 24px;
+    max-width: 460px;
+}
+
+.divider {
+    color: #ff78ac;
+    letter-spacing: 9px;
+    margin: 22px 0;
+}
+
+.letter {
+    text-align: left;
+    background: rgba(255, 240, 247, .9);
+    border: 1px solid #ffd0e3;
+    border-radius: 22px;
+    padding: 22px;
+    line-height: 1.9;
+    font-size: 14px;
+    color: #8c4769;
+}
+
+.letter p + p {
+    margin-top: 12px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    color: #d63384;
+    font-size: 29px;
+    text-align: right;
+    margin-top: 14px;
+}
+
+.question {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(36px, 8vw, 49px);
+    color: #d63384;
+    margin: 28px 0 22px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.04);
+}
+
+#yes {
+    color: white;
+    background: linear-gradient(135deg, #ff4f98, #e62980);
+    box-shadow: 0 8px 22px #ff78ac80;
+}
+
+#think {
+    color: #bf4c82;
+    background: white;
+    border: 1px solid #ffc1db;
+}
+
+.footer {
+    font-size: 11px;
+    margin-top: 27px;
+    color: #b86a91;
+}
+
+#answer {
+    display: none;
+    margin-top: 28px;
+    animation: appear .8s ease both;
+}
+
+#answer h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    color: #d63384;
+    margin-bottom: 12px;
+}
+
+#answer p {
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+#answer .big {
+    font-size: 58px;
+    margin: 12px;
+    animation: heartbeat 1.3s infinite;
+}
+
+#music {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 5;
+    background: rgba(255,255,255,.85);
+    color: #d63384;
+    padding: 10px 14px;
+    font-size: 12px;
+    box-shadow: 0 4px 15px #b8327220;
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@media(max-width: 450px) {
+    .card { padding: 32px 19px; border-radius: 28px; }
+    .letter { padding: 17px; }
+    .intro, .letter { font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+<div id="hearts"></div>
+
+<button id="music" onclick="toggleMusic()">♫ Música: activar</button>
+
+<main>
+    <section class="card">
+
+        <div class="badge">💌 UN MENSAJITO PARA MI TOXICA 🤍 💌</div>
+
+        <span class="big-heart">💗</span>
+
+        <h1>Para mi niña 🤍</h1>
+
+        <p class="intro">
+            Muchas gracias por hacerme todos los dias más bonitos y super felices gracias a ti
+            <br>
+            <b>Eres lo mejor que me ha pasado</b>
+        </p>
+
+        <div class="divider">♡ · ♡ · ♡</div>
+
+        <div class="letter">
+            <p>Mi niña, 💗</p>
+
+            <p>
+Una de las cosas que más me gustan de ti es tu risa y tu voz,ojalá pudiera hacerte reír siempre, porque escucharte feliz es de mis cosas favoritas. Me encanta cuando te emocionas contándome algo o cuando dices cualquier tontería.
+
+            <p>
+               Mi Ruthi, quiero que sepas que eres una personita increíble y que me siento muy afortunado de haberte conocido. Me encantas tal y como eres, con tus tonterias, tu forma de hablar, tus risas y todas esas pequeñas cosas que te hacen ser tú. No necesitas hacer nada especial para hacerme feliz.
+            </p>
+
+            <p>
+     Ojalá pudiera darte un abrazo super fuerte ahora mismo y recordarte lo muchísimo que te quiero. Y ojalá dentro de mucho tiempo sigamos aquí, solo nosotros dos para siempree.
+
+            <p>
+                Y aunque estas palabras no puedan explicar todo lo que
+                siento, quería hacerte algo especial para preguntarte
+                una cosita que llevo con muchas ganas en el corazón...
+            </p>
+
+            <div class="signature">Con muchísimo cariño, para ti ♡</div>
+        </div>
+
+        <h2 class="question">¿Quieres ser mi novia, y estar conmigo para siempre? 💖</h2>
+
+        <p class="intro">
+            Prometo hacerte la niña más feliz del mundo y quererte para siempre. 🌷
+        </p>
+
+        <div class="buttons">
+            <button id="yes" onclick="sayYes()">
+                SÍ, QUIERO 💗
+            </button>
+
+            <button id="think" onclick="sayThink()">
+                Déjame pensarlo 🙈
+            </button>
+        </div>
+
+        <div id="answer">
+            <div class="big">💐💖🥹</div>
+            <h2>¡ME HACES EL NIÑO MÁS FELIZ! </h2>
+            <p>
+                ¡¡SÍÍÍ!! 💕
+                <br><br>
+                Mi niña preciosa, quiero hacerte la mujer más feliz del mundo y para toda la vida hasta que tengamos canas y arruguitas en la cara.
+                <br><br>
+                <b>Te quiero muchísimo mi princesita. Me encantas muchito💗</b>
+            </p>
+        </div>
+
+        <p class="footer">
+            Hecho con amor, especialmente para ti ♡
+        </p>
+
+    </section>
+</main>
+
+<script>
+const heartContainer = document.getElementById('hearts');
+
+const symbols = ['💗', '💕', '💖', '♡', '🌸', '✨', '💘'];
+
+function createHeart() {
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.fontSize = (15 + Math.random() * 22) + 'px';
+    heart.style.animationDuration = (6 + Math.random() * 7) + 's';
+
+    heartContainer.appendChild(heart);
+    setTimeout(() => heart.remove(), 14000);
+}
+
+setInterval(createHeart, 350);
+
+function sayYes() {
+    document.getElementById('answer').style.display = 'block';
+    document.getElementById('yes').style.display = 'none';
+    document.getElementById('think').style.display = 'none';
+
+    document.getElementById('answer').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+
+    for (let i = 0; i < 100; i++) {
+        setTimeout(createConfetti, i * 25);
+    }
+}
+
+function sayThink() {
+    const btn = document.getElementById('think');
+    btn.textContent = '¿Segurita, mi niña? 🥺💗';
+
+    document.querySelector('.question').textContent =
+        'Tómate tu tiempo, mi niña bonita 💕';
+}
+
+function createConfetti() {
+    const el = document.createElement('span');
+    el.className = 'confetti';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (16 + Math.random() * 24) + 'px';
+    el.style.animationDuration = (2 + Math.random() * 3) + 's';
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 5000);
+}
+
+/* Música romántica generada con sonidos suaves */
+let audioContext;
+let musicTimer;
+let musicOn = false;
+let noteIndex = 0;
+
+function toggleMusic() {
+    const btn = document.getElementById('music');
+
+    if (musicOn) {
+        clearInterval(musicTimer);
+        musicOn = false;
+        btn.textContent = '♫ Música: activar';
+        if (audioContext) audioContext.suspend();
+        return;
+    }
+
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioCtx) {
+        btn.textContent = 'Música no disponible 💗';
+        return;
+    }
+
+    if (!audioContext) audioContext = new AudioCtx();
+    audioContext.resume();
+
+    const notes = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46];
+
+    function playNote() {
+        if (!musicOn) return;
+
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.value = notes[noteIndex % notes.length];
+
+        gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.055, audioContext.currentTime + .08);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + .65);
+
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+
+        osc.start();
+        osc.stop(audioContext.currentTime + .7);
+
+        noteIndex++;
+    }
+
+    musicOn = true;
+    playNote();
+    musicTimer = setInterval(playNote, 650);
+    btn.textContent = '♫ Música: desactivar';
+}
+</script>
+
+</body>
+</html>
